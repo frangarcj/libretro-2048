@@ -196,6 +196,16 @@ else ifeq ($(platform), vita)
    PLATFORM_DEFINES := -DVITA
    STATIC_LINKING = 1
 
+# Orbis
+else ifeq ($(platform), orbis)
+	EXT=a
+   TARGET := $(TARGET_NAME)_libretro_$(platform).$(EXT)
+	CC = clang$(EXE_EXT)
+	AR = ar$(EXE_EXT)
+	CFLAGS += -I$(PS4SDK)/include/
+   PLATFORM_DEFINES := -DORBIS
+   STATIC_LINKING = 1
+
 # CTR (3DS)
 else ifeq ($(platform), ctr)
 	EXT=a
